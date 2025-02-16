@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "BebasNeue";
+  src: url("@/assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mounthen";
+  src: url("@/assets/fonts/MouthenTypeface.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --font-primary: "Mounthen", sans-serif;
+  --font-secondary: "BebasNeue", helvetica;
+}

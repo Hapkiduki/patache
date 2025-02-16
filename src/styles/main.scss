@@ -1,0 +1,4 @@
+// src/styles/main.scss
+
+@use "fonts"; // Primero importa las definiciones de @font-face
+@use "variables"; // Luego importa las variables (que usan las fuentes)
