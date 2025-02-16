@@ -1,7 +1,4 @@
-// src/styles/_variables.scss
-
-@use "vuetify/settings" with (
-    $body-font-family: var(--font-secondary),
-    $heading-font-family: var(--font-primary),
-    // Usa la misma variable para ambos
-  );
+@use "vuetify" with (
+  $body-font-family: var(--font-secondary),
+  $heading-font-family: var(--font-primary)
+);

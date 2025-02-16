@@ -7,16 +7,22 @@
             <v-img :src="Drawables.logo" alt="Pataché" height="200px" />
           </v-card-title>
 
-          <v-tabs v-model="tab" bg-color="transparent" grow>
-            <v-tab v-for="category in categories" :key="category.id" :text="category.name"
-              :value="category.name"></v-tab>
+          <v-tabs v-model="tab" bg-color="transparent" next-icon="mdi-arrow-right-bold-box-outline"
+            prev-icon="mdi-arrow-left-bold-box-outline" grow show-arrows>
+            <v-tab v-for="category in categories" :key="category.id" :text="category.name" :value="category.name">
+            </v-tab>
           </v-tabs>
 
           <v-tabs-window v-model="tab">
             <v-tabs-window-item v-for="category in categories" :key="category.id" :value="category.name">
               <v-card-title color="basil" flat>
                 <v-card-text>{{ text }}</v-card-text>
-                <h1>Hola Mundo</h1>
+                <v-card-title>{{ text }}</v-card-title>
+                <h1>Hola Mundo 0</h1>
+                <h1 class="text-h5">Título con fuente secundaria</h1>
+                <h1>Hola Mundo 1</h1>
+                <h5>Hola Mundo</h5>
+                <v-alert title="Alert title" :text="text" variant="outlined"></v-alert>
               </v-card-title>
             </v-tabs-window-item>
           </v-tabs-window>
