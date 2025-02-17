@@ -1,58 +1,100 @@
 <template>
-  <div class="product-item" >
-    <img :src="product.image" :alt="product.name" class="product-image">
-    <h3>{{ product.name }}</h3>
-    <p class="description">{{ product.description }}</p>
-    <p class="price">Precio: ${{ product.price }}</p>
-  </div>
+    <v-card align="center" class="rounded-xl bg-primary position-relative custom-card">
+
+        <v-img :src="product.image" class="rounded-xl floating-image" width="80%" height="auto" aspect-ratio="3/4" eager
+            cover></v-img>
+
+        <v-card-item class="card-content">
+            <v-card-title class="text-h5 text-wrap">{{ product.name }}</v-card-title>
+            <v-card-subtitle class="text-wrap">{{ product.description
+                }}</v-card-subtitle>
+            <v-card-text>Precio: {{ product.price }}</v-card-text>
+        </v-card-item>
+
+    </v-card>
+
 </template>
 
 <script setup lang="ts">
-import { defineProps} from 'vue';
-import type { Product } from '../views/AboutView.vue'; // Importa la interfaz
-
+import { defineProps, ref } from 'vue';
+interface Product {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+    price: number;
+}
 
 const props = defineProps<{
-  product: Product;
+    product: Product;
 }>();
-
 </script>
 
 <style scoped>
-/* ... (Tus estilos CSS, como antes) ... */
-.product-item {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-   cursor: pointer;
+.custom-card {
+    position: relative;
+    overflow: visible;
+    margin: 14vh auto 4vh;
+    padding-top: 16vh;
+    min-height: 40vh;
+    transition: all 0.3s ease;
 }
 
-.product-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.floating-image {
+    position: absolute;
+    top: -12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    z-index: 2;
 }
 
-.product-image {
-  width: 100%;
-  height: 180px; /* Altura fija para consistencia */
-  object-fit: cover; /* Importante para que las imágenes se ajusten bien */
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
+.card-content {
+    padding: 2vh 3vw;
+    position: relative;
+    z-index: 1;
 }
 
-.description {
-  margin-bottom: 0.5rem;
-  color: #555;
-  height: 4em; /* Altura fija para la descripción, aprox. 3 líneas */
-  overflow: hidden; /* Oculta el texto que sobrepase */
-  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+@media (max-width: 960px) {
+    .custom-card {
+        margin: 10vh auto 3vh;
+        padding-top: 8vh;
+        min-height: 25vh;
+    }
+
+    .floating-image {
+        top: -10vh;
+        width: 85% !important;
+    }
 }
 
-.price {
-  font-weight: bold;
-  color: #e44d26; /* Color llamativo para el precio */
+@media (max-width: 600px) {
+    .custom-card {
+        margin: 10vh auto 2vh;
+        padding-top: 13vh;
+        min-height: 30vh;
+    }
+
+    .floating-image {
+        top: -10vh;
+        width: 90% !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-content {
+        padding: 1.5vh 4vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .custom-card {
+        margin: 16vh auto 2vh;
+        padding-top: 12vh;
+    }
+
+    .floating-image {
+        top: -16vh;
+    }
 }
 </style>
