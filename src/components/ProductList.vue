@@ -25,14 +25,14 @@ interface Product {
 const products = ref<Product[]>([
     {
         id: 1,
-        name: 'Producto 1',
-        description: 'Una descripción muy detallada del Producto 1, con suficiente texto para que ocupe varias líneas y se pruebe el recorte de texto. Una descripción muy detallada del Producto 1, con suficiente texto para que ocupe varias líneas y se pruebe el recorte de texto.',
+        name: 'Pollo',
+        description: 'Pollo desmechado, lechuga, queso mozarella, tocineta ahumada, huevos de codorniz, maicitos y ripio de papa',
         image: Drawables.patacon1,
-        price: 19.99,
+        price: 28100,
     },
     {
         id: 2,
-        name: 'Producto 2',
+        name: 'Producto otro',
         description: 'Descripción del producto 2.',
         image: 'https://placehold.co/600x400.png',
         price: 29.99,
